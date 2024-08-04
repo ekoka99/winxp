@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-
 import risk from 'assets/windowsIcons/229(16x16).png';
 
 function Balloon({ startAfter = 3000, duration = 15000 }) {
   const [show, setShow] = useState(true);
   const [start, setStart] = useState(false);
+
   useEffect(() => {
     const openTimer = setTimeout(() => setStart(true), startAfter);
     const fadeTimer = setTimeout(() => setShow(false), startAfter + duration);
@@ -19,6 +19,7 @@ function Balloon({ startAfter = 3000, duration = 15000 }) {
       clearTimeout(closeTimer);
     };
   }, [startAfter, duration]);
+
   return (
     start && (
       <Div show={show}>
@@ -27,22 +28,23 @@ function Balloon({ startAfter = 3000, duration = 15000 }) {
           <div className="balloon__header">
             <img className="balloon__header__img" src={risk} alt="risk" />
             <span className="balloon__header__text">
-              Your computer might be at risk
+              Warning: Games Disabled
             </span>
           </div>
           <p className="balloon__text__first">
-            Antivirus software might not be installed
+            Minesweeper and Pinball have been disabled
           </p>
           <p className="balloon__text__second">
-            Click this balloon to fix this problem.
+            to reduce website hosting costs.
           </p>
         </div>
       </Div>
     )
   );
 }
+
 const fadein = keyframes`
-  0% { 
+  0% {
     display: block;
     opacity: 0;
   }
@@ -51,8 +53,9 @@ const fadein = keyframes`
     opacity: 1;
   }
 `;
+
 const fadeout = keyframes`
-  0% { 
+  0% {
     display: block;
     opacity: 1;
   }
@@ -65,6 +68,7 @@ const fadeout = keyframes`
     opacity: 0;
   }
 `;
+
 const Div = styled.div`
   position: absolute;
   display: block;
@@ -160,4 +164,5 @@ const Div = styled.div`
     margin: 5px 0 10px;
   }
 `;
+
 export default Balloon;
