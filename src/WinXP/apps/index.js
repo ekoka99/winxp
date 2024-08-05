@@ -24,16 +24,16 @@ export const defaultAppState = [
       icon: iePaper,
     },
     defaultSize: {
-      width: 700,
-      height: 500,
+      width: window.innerWidth * 0.7, // 80% of the screen width
+      height: window.innerHeight * 0.8, // 80% of the screen height
     },
     defaultOffset: {
-      x: 130,
-      y: 20,
+      x: 110,
+      y: 50,
     },
     resizable: true,
     minimized: false,
-    maximized: window.innerWidth < 800,
+    maximized: false,
     id: genId(),
     zIndex: genIndex(),
   },

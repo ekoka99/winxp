@@ -32,10 +32,10 @@ function Balloon({ startAfter = 3000, duration = 15000 }) {
             </span>
           </div>
           <p className="balloon__text__first">
-            Minesweeper and Pinball have been disabled
+            Due to high site traffic and server load,
           </p>
           <p className="balloon__text__second">
-            to reduce website hosting costs.
+            Minesweeper and 3D Pinball have been disabled.
           </p>
         </div>
       </Div>
