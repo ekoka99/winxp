@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import user from 'assets/windowsIcons/user.png';
@@ -8,6 +8,15 @@ import outlook from 'assets/windowsIcons/887(32x32).png';
 import phone from 'assets/windowsIcons/74(32x32).png';
 
 function FooterMenu({ onClick }) {
+  const [copyMessage, setCopyMessage] = useState('');
+
+  const copyToClipboard = text => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyMessage('Copied to clipboard');
+      setTimeout(() => setCopyMessage(''), 2000);
+    });
+  };
+
   return (
     <StyledFooterMenu>
       <header>
@@ -17,7 +26,10 @@ function FooterMenu({ onClick }) {
       <section className="menu">
         <hr className="orange-hr" />
         <div className="menu__left">
-          <div className="menu__item">
+          <div
+            className="menu__item"
+            onClick={() => copyToClipboard('kokaelio@msu.edu')}
+          >
             <img className="menu__item__img" src={outlook} alt="Email" />
             <div className="menu__item__texts">
               <div className="menu__item__text">My e-mail</div>
@@ -26,7 +38,10 @@ function FooterMenu({ onClick }) {
           </div>
         </div>
         <div className="menu__right">
-          <div className="menu__item">
+          <div
+            className="menu__item"
+            onClick={() => copyToClipboard('(248) 880-5549')}
+          >
             <img className="menu__item__img" src={phone} alt="Phone" />
             <div className="menu__item__texts">
               <div className="menu__item__text">My phone</div>
@@ -48,6 +63,7 @@ function FooterMenu({ onClick }) {
           <span>Turn Off Computer</span>
         </div>
       </footer>
+      {copyMessage && <CopyMessage>{copyMessage}</CopyMessage>}
     </StyledFooterMenu>
   );
 }
@@ -152,6 +168,7 @@ const StyledFooterMenu = styled.div`
     align-items: center;
     margin-bottom: 4px;
     height: 34px;
+    cursor: pointer;
   }
 
   .menu__item:hover {
@@ -233,6 +250,31 @@ const StyledFooterMenu = styled.div`
     margin-right: 2px;
     width: 22px;
     height: 22px;
+  }
+`;
+
+const CopyMessage = styled.div`
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  animation: fadeOut 2s forwards;
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
   }
 `;
 

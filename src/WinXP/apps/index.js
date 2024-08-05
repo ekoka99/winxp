@@ -20,7 +20,7 @@ export const defaultAppState = [
   {
     component: InternetExplorer,
     header: {
-      title: 'Internet Explorer',
+      title: 'asdasdasd Internet Explorer',
       icon: iePaper,
     },
     defaultSize: {
