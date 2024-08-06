@@ -1,4 +1,3 @@
-// HtmlPage.js
 import React from 'react';
 
 const HtmlPage = () => {
@@ -8,6 +7,11 @@ const HtmlPage = () => {
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const pageStyle = {
+    fontFamily: 'Helvetica, Arial, sans-serif',
+    fontWeight: 'bold',
   };
 
   const navStyle = {
@@ -37,6 +41,26 @@ const HtmlPage = () => {
     textShadow: '2px 2px 4px #000',
   };
 
+  const blurBoxStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backdropFilter: 'blur(5px)',
+    padding: '20px',
+    borderRadius: '15px',
+    maxWidth: '80%',
+    textAlign: 'center',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+  };
+
+  const headingStyle = {
+    fontSize: '2.5em',
+    marginBottom: '0.5em',
+  };
+
+  const paragraphStyle = {
+    fontSize: '1em',
+    lineHeight: '1.6',
+  };
+
   const section2Style = {
     height: '50vh',
     display: 'flex',
@@ -58,7 +82,7 @@ const HtmlPage = () => {
   };
 
   return (
-    <div>
+    <div style={pageStyle}>
       <nav style={navStyle}>
         <a
           href="#section2"
@@ -75,24 +99,28 @@ const HtmlPage = () => {
           Section 3
         </a>
       </nav>
-
       <section id="section1" style={section1Style}>
-        <div>
-          <h2>MATERIAL HANDLING AUTOMATION</h2>
-          <p>
-            The world’s first autonomous wheel, transforms any object into a
-            mobile robot.
+        <div style={blurBoxStyle}>
+          <h2 style={headingStyle}>Hey, I'm Elio</h2>
+          <p style={paragraphStyle}>
+            I'm a Metro-Detroit <strong>Robotics Test Engineer</strong>{' '}
+            currently working at <strong>Wheel.me</strong>. I'm passionate about
+            ensuring the quality and reliability of cutting-edge autonomous
+            wheel technology that's transforming material handling automation.
+          </p>
+          <p style={paragraphStyle}>
+            With a multifaceted background spanning various tech domains, I
+            bring a unique perspective to the challenges of robotics testing and
+            development.
           </p>
         </div>
       </section>
-
       <section id="section2" style={section2Style}>
         <div>
           <h2>Section 2</h2>
           <p>This is the second section.</p>
         </div>
       </section>
-
       <section id="section3" style={section3Style}>
         <div>
           <h2>Section 3</h2>

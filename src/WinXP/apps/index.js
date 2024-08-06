@@ -2,7 +2,10 @@ import InternetExplorer from './InternetExplorer';
 import ErrorBox from './ErrorBox';
 import Notepad from './Notepad';
 import iePaper from 'assets/windowsIcons/ie-paper.png';
+import wordPaper from 'assets/windowsIcons/word-paper.png';
+import Word from './Word';
 import ie from 'assets/windowsIcons/ie.png';
+import wordIcon from 'assets/windowsIcons/word.png';
 import error from 'assets/windowsIcons/897(16x16).png';
 import notepad from 'assets/windowsIcons/327(16x16).png';
 import notepadLarge from 'assets/windowsIcons/327(32x32).png';
@@ -20,7 +23,7 @@ export const defaultAppState = [
   {
     component: InternetExplorer,
     header: {
-      title: 'asdasdasd Internet Explorer',
+      title: "Elio Koka's Personal Site - Internet Explorer",
       icon: iePaper,
     },
     defaultSize: {
@@ -49,8 +52,15 @@ export const defaultIconState = [
   },
   {
     id: 1,
+    icon: wordIcon,
+    title: 'Resume.docx',
+    component: Word,
+    isFocus: false,
+  },
+  {
+    id: 2,
     icon: notepadLarge,
-    title: 'Notepad',
+    title: 'Projects.txt',
     component: Notepad,
     isFocus: false,
   },
@@ -60,7 +70,7 @@ export const appSettings = {
   'Internet Explorer': {
     header: {
       icon: iePaper,
-      title: 'InternetExplorer',
+      title: "Elio Koka's Personal Site - Internet Explorer",
     },
     component: InternetExplorer,
     defaultSize: {
@@ -75,6 +85,26 @@ export const appSettings = {
     minimized: false,
     maximized: window.innerWidth < 800,
     multiInstance: true,
+  },
+  Word: {
+    header: {
+      icon: wordPaper, // Replace with the correct icon for Word
+      title: 'Resume.docx - Microsoft Word',
+    },
+    component: Word,
+    defaultSize: {
+      width: 800,
+      height: 600,
+    },
+    defaultOffset: {
+      x: 100,
+      y: 50,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: false, // Set maximized to false
+    multiInstance: true,
+    noFooterWindow: true, // Remove the footer
   },
   Error: {
     header: {
@@ -100,7 +130,7 @@ export const appSettings = {
   Notepad: {
     header: {
       icon: notepad,
-      title: 'Untitled - Notepad',
+      title: 'Projects.txt - Notepad',
     },
     component: Notepad,
     defaultSize: {
@@ -118,4 +148,4 @@ export const appSettings = {
   },
 };
 
-export { InternetExplorer, ErrorBox, Notepad };
+export { InternetExplorer, ErrorBox, Word, Notepad };
