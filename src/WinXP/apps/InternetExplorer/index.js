@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { WindowDropDowns, Google } from 'components';
+// Assuming these components and assets are available in your project structure
+import { WindowDropDowns } from 'components';
 import dropDownData from './dropDownData';
 import ie from 'assets/windowsIcons/ie-paper.png';
 import printer from 'assets/windowsIcons/17(32x32).png';
@@ -23,38 +24,34 @@ import windows from 'assets/windowsIcons/windows.png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
 
 function InternetExplorer({ onClose }) {
-  const [state, setState] = useState({
-    route: 'main',
-    query: '',
-  });
-  function onSearch(str) {
-    if (str.length) {
-      setState({
-        route: 'search',
-        query: str,
-      });
-    }
-  }
-  function goMain() {
-    setState({
-      route: 'main',
-      query: '',
-    });
-  }
+  const [url, setUrl] = useState('https://demo.reactresume.com/');
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+        userAgent.toLowerCase(),
+      );
+    };
+
+    setScale(checkMobile() ? 0.5 : 1); // Adjust these values as needed
+  }, []);
+
   function onClickOptionItem(item) {
     switch (item) {
       case 'Close':
         onClose();
         break;
       case 'Home Page':
-      case 'Back':
-        goMain();
+        setUrl('https://demo.reactresume.com/');
         break;
       default:
     }
   }
+
   return (
-    <Div>
+    <StyledIE>
       <section className="ie__toolbar">
         <div className="ie__options">
           <WindowDropDowns
@@ -66,17 +63,12 @@ function InternetExplorer({ onClose }) {
         <img className="ie__windows-logo" src={windows} alt="windows" />
       </section>
       <section className="ie__function_bar">
-        <div
-          onClick={goMain}
-          className={`ie__function_bar__button${
-            state.route === 'main' ? '--disable' : ''
-          }`}
-        >
+        <div className="ie__function_bar__button">
           <img className="ie__function_bar__icon" src={back} alt="" />
           <span className="ie__function_bar__text">Back</span>
           <div className="ie__function_bar__arrow" />
         </div>
-        <div className="ie__function_bar__button--disable">
+        <div className="ie__function_bar__button">
           <img className="ie__function_bar__icon" src={forward} alt="" />
           <div className="ie__function_bar__arrow" />
         </div>
@@ -90,13 +82,13 @@ function InternetExplorer({ onClose }) {
             alt=""
           />
         </div>
-        <div className="ie__function_bar__button" onClick={goMain}>
+        <div className="ie__function_bar__button">
           <img className="ie__function_bar__icon--margin-1" src={home} alt="" />
         </div>
         <div className="ie__function_bar__separate" />
         <div className="ie__function_bar__button">
           <img
-            className="ie__function_bar__icon--normalize "
+            className="ie__function_bar__icon--normalize"
             src={search}
             alt=""
           />
@@ -125,7 +117,7 @@ function InternetExplorer({ onClose }) {
             alt=""
           />
         </div>
-        <div className="ie__function_bar__button--disable">
+        <div className="ie__function_bar__button">
           <img className="ie__function_bar__icon" src={edit} alt="" />
         </div>
         <div className="ie__function_bar__button">
@@ -137,11 +129,7 @@ function InternetExplorer({ onClose }) {
         <div className="ie__address_bar__content">
           <img src={ie} alt="ie" className="ie__address_bar__content__img" />
           <div className="ie__address_bar__content__text">
-            {`https://www.kokael.io${
-              state.route === 'search'
-                ? `/search?q=${encodeURIComponent(state.query)}`
-                : ''
-            }`}
+            https://kokael.io
           </div>
           <img
             src={dropdown}
@@ -165,12 +153,7 @@ function InternetExplorer({ onClose }) {
       </section>
       <div className="ie__content">
         <div className="ie__content__inner">
-          <Google
-            route={state.route}
-            query={state.query}
-            onSearch={onSearch}
-            goMain={goMain}
-          />
+          <StyledIframe src={url} title="Web Content" scale={scale} />
         </div>
       </div>
       <footer className="ie__footer">
@@ -188,11 +171,19 @@ function InternetExplorer({ onClose }) {
           <div className="ie__footer__right__dots" />
         </div>
       </footer>
-    </Div>
+    </StyledIE>
   );
 }
 
-const Div = styled.div`
+const StyledIframe = styled.iframe`
+  border: none;
+  width: ${props => `${100 / props.scale}%`};
+  height: ${props => `${100 / props.scale}%`};
+  transform: scale(${props => props.scale});
+  transform-origin: 0 0;
+`;
+
+const StyledIE = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
@@ -249,14 +240,6 @@ const Div = styled.div`
         transform: translate(1px, 1px);
       }
     }
-  }
-  .ie__function_bar__button--disable {
-    filter: grayscale(1);
-    opacity: 0.7;
-    display: flex;
-    height: 100%;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0);
   }
   .ie__function_bar__text {
     margin-right: 4px;
