@@ -20,7 +20,6 @@ import mail from 'assets/windowsIcons/mail.png';
 import msn from 'assets/windowsIcons/msn.png';
 import refresh from 'assets/windowsIcons/refresh.png';
 import stop from 'assets/windowsIcons/stop.png';
-import windows from 'assets/windowsIcons/windows.png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
 
 function InternetExplorer({ onClose }) {
@@ -60,7 +59,6 @@ function InternetExplorer({ onClose }) {
             height={21}
           />
         </div>
-        <img className="ie__windows-logo" src={windows} alt="windows" />
       </section>
       <section className="ie__function_bar">
         <div className="ie__function_bar__button">
@@ -207,11 +205,6 @@ const StyledIE = styled.div`
     border-right: 1px solid rgba(0, 0, 0, 0.15);
     padding-left: 2px;
     flex: 1;
-  }
-  .ie__windows-logo {
-    height: 100%;
-    border-left: 1px solid white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   .ie__function_bar {
     height: 36px;

@@ -5,6 +5,7 @@
   "author": "ShizukuIchi <shizukuichi@gmail.com>",
   "homepage": "https://winxp.now.sh",
   "dependencies": {
+    "dompurify": "^3.1.6",
     "lodash.samplesize": "^4.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
