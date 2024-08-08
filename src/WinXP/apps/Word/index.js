@@ -44,6 +44,7 @@ import TableInsertDialog from 'assets/windowsIcons/word-icons(16x16)/TableInsert
 import TextAlignWordJustify from 'assets/windowsIcons/word-icons(16x16)/TextAlignWordJustify.png';
 import Underline from 'assets/windowsIcons/word-icons(16x16)/Underline.png';
 import Undo from 'assets/windowsIcons/word-icons(16x16)/Undo.png';
+import Dropdown from 'assets/windowsIcons/dropdown.png';
 
 function Word({ onClose }) {
   const [pdfUrl] = useState('https://pdfobject.com/pdf/sample.pdf');
@@ -100,7 +101,7 @@ function Word({ onClose }) {
         <FunctionButton icon={ParagraphMarks} />
         <ZoomBox>
           <span>100%</span>
-          <DropdownIcon />
+          <DropdownButton icon={Dropdown} />
         </ZoomBox>
         <FunctionButton icon={Help} />
         <Divider />
@@ -111,17 +112,17 @@ function Word({ onClose }) {
       </section>
       <section className="word__function_bar word__function_bar_bottom">
         <FunctionButton icon={StylesPane} />
-        <TextBox width={100}>
+        <TextBox width={90}>
           Normal
-          <DropdownIcon />
+          <DropdownButton icon={Dropdown} />
         </TextBox>
-        <TextBox width={120}>
+        <TextBox width={130}>
           Times New Roman
-          <DropdownIcon />
+          <DropdownButton icon={Dropdown} />
         </TextBox>
-        <TextBox width={40}>
+        <TextBox width={50}>
           12
-          <DropdownIcon />
+          <DropdownButton icon={Dropdown} />
         </TextBox>
         <Divider />
         <FunctionButton icon={Bold} />
@@ -220,6 +221,7 @@ const FunctionButton = styled.div`
   background-size: 16px 16px;
   margin: 0 1px;
   border: 1px solid transparent;
+  border-radius: 3px;
   background-color: transparent;
   background-image: ${props => `url(${props.icon})`};
   background-repeat: no-repeat;
@@ -235,7 +237,7 @@ const FunctionButton = styled.div`
 
   &:hover:active {
     border: 1px solid rgb(185, 185, 185);
-    background-color: gradient(to bottom, #99a3b1 55%, #5d7a9e);
+    background-color: linear-gradient(to bottom, #99a3b1 55%, #5d7a9e);
     box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.7);
     & > * {
       transform: translate(1px, 1px);
@@ -276,19 +278,36 @@ const ZoomBox = styled.div`
   background: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 5px;
+  padding-left: 5px;
   margin: 0 3px;
   font-size: 11px;
   flex-shrink: 0;
+  position: relative;
 `;
 
-const DropdownIcon = styled.div`
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid #000;
+const DropdownButton = styled(FunctionButton)`
+  width: 21px;
+  height: 21px;
+  min-width: unset;
+  background-size: 18px 18px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:hover {
+    border: none;
+    background-color: #e5f0ff;
+    box-shadow: none;
+  }
+
+  &:hover:active {
+    border: none;
+    background-color: #cce1ff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const ReadModeButton = styled(FunctionButton)`
@@ -312,11 +331,16 @@ const TextBox = styled.div`
   background: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 5px;
+  padding-left: 5px;
   margin: 0 3px;
   font-size: 11px;
   flex-shrink: 0;
+  position: relative;
+
+  ${DropdownButton} {
+    right: 0;
+    top: 0;
+  }
 `;
 
 export default Word;

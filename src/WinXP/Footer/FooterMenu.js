@@ -32,8 +32,8 @@ function FooterMenu({ onClick }) {
           >
             <img className="menu__item__img" src={outlook} alt="Email" />
             <div className="menu__item__texts">
-              <div className="menu__item__text">My E-Mail</div>
-              <div className="menu__item__subtext">kokaelio@msu.edu</div>
+              <div className="menu__item__text">kokaelio@msu.edu</div>
+              <div className="menu__item__subtext">My E-Mail</div>
             </div>
           </div>
         </div>
@@ -44,8 +44,8 @@ function FooterMenu({ onClick }) {
           >
             <img className="menu__item__img" src={phone} alt="Phone" />
             <div className="menu__item__texts">
-              <div className="menu__item__text">My Phone</div>
-              <div className="menu__item__subtext">(248) 880-5549</div>
+              <div className="menu__item__text">(248) 880-5549</div>
+              <div className="menu__item__subtext">My Phone</div>
             </div>
           </div>
         </div>
