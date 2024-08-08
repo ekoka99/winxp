@@ -53,7 +53,8 @@ const Div = styled.div`
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  background: #b8cce4;
+  background: #c3daf9;
+
   .word__toolbar {
     position: relative;
     display: flex;
@@ -63,6 +64,7 @@ const Div = styled.div`
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
     flex-shrink: 0;
   }
+
   .word__options {
     height: 23px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -70,14 +72,17 @@ const Div = styled.div`
     padding-left: 2px;
     flex: 1;
   }
+
   .word__function_bar {
-    height: 36px;
+    height: 24px;
     display: flex;
     align-items: center;
     font-size: 11px;
     padding: 1px 3px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #dcebfe, #81a9e2);
   }
+
   .word__content {
     flex: 1;
     overflow: auto;

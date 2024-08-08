@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { WindowDropDowns } from 'components';
 import dropDownData from './dropDownData';
-import DOMPurify from 'dompurify'; // You may need to install this package
+import DOMPurify from 'dompurify';
 
 export default function Notepad({ onClose }) {
   const [content, setContent] = useState('');
@@ -10,11 +10,25 @@ export default function Notepad({ onClose }) {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    fetch('/content')
+    fetch('/projectsfile')
       .then(response => response.text())
       .then(html => {
-        // Sanitize the HTML to prevent XSS attacks
-        const sanitizedHtml = DOMPurify.sanitize(html);
+        // Create a temporary DOM element to parse the HTML
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+
+        // Correct the image paths
+        tempDiv.querySelectorAll('img').forEach(img => {
+          if (img.src && !img.src.startsWith('http')) {
+            img.src = new URL(
+              img.src,
+              window.location.origin + '/projectsfile',
+            ).href;
+          }
+        });
+
+        // Sanitize the corrected HTML
+        const sanitizedHtml = DOMPurify.sanitize(tempDiv.innerHTML);
         setContent(sanitizedHtml);
       })
       .catch(error => console.error('Error loading content:', error));
