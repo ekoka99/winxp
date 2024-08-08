@@ -190,6 +190,8 @@ const Div = styled.div`
     font-size: 11px;
     padding: 2px 3px;
     border-bottom: 1px solid #2f579d;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
   .word__function_bar_top {
@@ -213,8 +215,8 @@ const FunctionButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${props => (props.withArrow ? '40px' : '20px')};
-  height: 26px; // Changed from 32px to 28px
+  min-width: ${props => (props.withArrow ? '40px' : '20px')};
+  height: 26px;
   background-size: 16px 16px;
   margin: 0 1px;
   border: 1px solid transparent;
@@ -224,6 +226,7 @@ const FunctionButton = styled.div`
   background-position: ${props => (props.withArrow ? '4px center' : 'center')};
   cursor: pointer;
   position: relative;
+  flex-shrink: 0;
 
   &:hover {
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -263,10 +266,11 @@ const Divider = styled.div`
   height: 22px;
   background-color: #8eb2ec;
   margin: 0 3px;
+  flex-shrink: 0;
 `;
 
 const ZoomBox = styled.div`
-  width: 75px;
+  min-width: 75px;
   height: 22px;
   border: 1px solid #3c77dd;
   background: #fff;
@@ -276,6 +280,7 @@ const ZoomBox = styled.div`
   padding: 0 5px;
   margin: 0 3px;
   font-size: 11px;
+  flex-shrink: 0;
 `;
 
 const DropdownIcon = styled.div`
@@ -287,7 +292,7 @@ const DropdownIcon = styled.div`
 `;
 
 const ReadModeButton = styled(FunctionButton)`
-  width: auto;
+  min-width: auto;
   padding: 0 5px;
   font-size: 11px;
   color: #000;
@@ -301,7 +306,7 @@ const ReadModeButton = styled(FunctionButton)`
 `;
 
 const TextBox = styled.div`
-  width: ${props => props.width}px;
+  min-width: ${props => props.width}px;
   height: 22px;
   border: 1px solid #3c77dd;
   background: #fff;
@@ -311,6 +316,7 @@ const TextBox = styled.div`
   padding: 0 5px;
   margin: 0 3px;
   font-size: 11px;
+  flex-shrink: 0;
 `;
 
 export default Word;

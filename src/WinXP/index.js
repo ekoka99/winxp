@@ -236,6 +236,8 @@ function WinXP() {
   function onClickMenuItem(o) {
     if (o === 'Internet')
       dispatch({ type: ADD_APP, payload: appSettings['Internet Explorer'] });
+    else if (o === 'Word')
+      dispatch({ type: ADD_APP, payload: appSettings.Notepad });
     else if (o === 'Notepad')
       dispatch({ type: ADD_APP, payload: appSettings.Notepad });
     else if (o === 'Log Off')
