@@ -93,8 +93,8 @@ export const appSettings = {
     },
     component: Word,
     defaultSize: {
-      width: 800,
-      height: 600,
+      width: 900,
+      height: 1000,
     },
     defaultOffset: {
       x: 100,
