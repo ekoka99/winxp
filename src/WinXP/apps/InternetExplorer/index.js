@@ -34,7 +34,7 @@ function InternetExplorer({ onClose }) {
       );
     };
 
-    setScale(checkMobile() ? 0.5 : 1); // Adjust these values as needed
+    setScale(checkMobile() ? 0.8 : 1);
   }, []);
 
   function onClickOptionItem(item) {
@@ -376,11 +376,20 @@ const StyledIE = styled.div`
   }
   .ie__content__inner {
     position: relative;
-    min-height: 800px;
-    min-width: 800px;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
+  .ie__footer {
+    height: 20px;
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 3px rgba(50, 50, 50, 0.8);
+    background-color: rgb(236, 233, 216);
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+  }
+
   .ie__footer {
     height: 20px;
     border-top: 1px solid transparent;

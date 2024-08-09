@@ -28,7 +28,7 @@ export const defaultAppState = [
     },
     defaultSize: {
       width: window.innerWidth * 0.7, // 80% of the screen width
-      height: window.innerHeight * 0.8, // 80% of the screen height
+      height: window.innerHeight * 0.85, // 80% of the screen height
     },
     defaultOffset: {
       x: 110,
@@ -93,8 +93,8 @@ export const appSettings = {
     },
     component: Word,
     defaultSize: {
-      width: 900,
-      height: 1000,
+      width: window.innerWidth * 0.7,
+      height: window.innerHeight * 0.9,
     },
     defaultOffset: {
       x: 150,

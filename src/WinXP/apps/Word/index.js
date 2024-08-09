@@ -237,8 +237,9 @@ const FunctionButton = styled.div`
 
   &:hover:active {
     border: 1px solid rgb(185, 185, 185);
-    background-color: linear-gradient(to bottom, #99a3b1 55%, #5d7a9e);
+    background-color: #edc173;
     box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7);
     & > * {
       transform: translate(1px, 1px);
     }
@@ -273,7 +274,7 @@ const Divider = styled.div`
 
 const ZoomBox = styled.div`
   min-width: 75px;
-  height: 22px;
+  height: 20px;
   border: 1px solid #3c77dd;
   background: #fff;
   display: flex;
@@ -286,16 +287,16 @@ const ZoomBox = styled.div`
 `;
 
 const DropdownButton = styled(FunctionButton)`
-  width: 21px;
-  height: 21px;
+  width: 18px;
+  height: 19px;
   min-width: unset;
-  background-size: 18px 18px;
+  background-size: 16px 16px;
   margin: 0;
   border: none;
-  border-radius: 0;
+  border-radius: 0px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 0px;
 
   &:hover {
     border: none;
@@ -306,7 +307,7 @@ const DropdownButton = styled(FunctionButton)`
   &:hover:active {
     border: none;
     background-color: #cce1ff;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -326,7 +327,7 @@ const ReadModeButton = styled(FunctionButton)`
 
 const TextBox = styled.div`
   min-width: ${props => props.width}px;
-  height: 22px;
+  height: 20px;
   border: 1px solid #3c77dd;
   background: #fff;
   display: flex;
