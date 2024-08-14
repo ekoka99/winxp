@@ -10,6 +10,28 @@ import error from 'assets/windowsIcons/897(16x16).png';
 import notepad from 'assets/windowsIcons/327(16x16).png';
 import notepadLarge from 'assets/windowsIcons/327(32x32).png';
 
+// Function to detect mobile devices
+const isMobileDevice = () => {
+  return (
+    typeof window.orientation !== 'undefined' ||
+    navigator.userAgent.indexOf('IEMobile') !== -1
+  );
+};
+
+// Function to get appropriate dimensions based on device type
+const getDimensions = (desktopWidth, desktopHeight) => {
+  if (isMobileDevice()) {
+    return {
+      width: window.innerWidth * 0.9,
+      height: window.innerHeight * 0.7,
+    };
+  }
+  return {
+    width: desktopWidth,
+    height: desktopHeight,
+  };
+};
+
 const gen = () => {
   let id = -1;
   return () => {
@@ -17,8 +39,10 @@ const gen = () => {
     return id;
   };
 };
+
 const genId = gen();
 const genIndex = gen();
+
 export const defaultAppState = [
   {
     component: InternetExplorer,
@@ -26,17 +50,17 @@ export const defaultAppState = [
       title: "Elio Koka's Personal Site - Internet Explorer",
       icon: iePaper,
     },
-    defaultSize: {
-      width: window.innerWidth * 0.7, // 80% of the screen width
-      height: window.innerHeight * 0.85, // 80% of the screen height
-    },
+    defaultSize: getDimensions(
+      window.innerWidth * 0.7,
+      window.innerHeight * 0.85,
+    ),
     defaultOffset: {
       x: 110,
       y: 50,
     },
     resizable: true,
     minimized: false,
-    maximized: false,
+    maximized: isMobileDevice(),
     id: genId(),
     zIndex: genIndex(),
   },
@@ -73,38 +97,35 @@ export const appSettings = {
       title: "Elio Koka's Personal Site - Internet Explorer",
     },
     component: InternetExplorer,
-    defaultSize: {
-      width: 700,
-      height: 500,
-    },
+    defaultSize: getDimensions(700, 500),
     defaultOffset: {
       x: 140,
       y: 30,
     },
     resizable: true,
     minimized: false,
-    maximized: window.innerWidth < 800,
+    maximized: isMobileDevice(),
     multiInstance: true,
   },
   Word: {
     header: {
-      icon: wordPaper, // Replace with the correct icon for Word
+      icon: wordPaper,
       title: 'Resume.docx - Microsoft Word',
     },
     component: Word,
-    defaultSize: {
-      width: window.innerWidth * 0.7,
-      height: window.innerHeight * 0.9,
-    },
+    defaultSize: getDimensions(
+      window.innerWidth * 0.7,
+      window.innerHeight * 0.9,
+    ),
     defaultOffset: {
       x: 150,
       y: 25,
     },
     resizable: true,
     minimized: false,
-    maximized: false, // Set maximized to false
+    maximized: isMobileDevice(),
     multiInstance: true,
-    noFooterWindow: true, // Remove the footer
+    noFooterWindow: true,
   },
   Error: {
     header: {
@@ -133,17 +154,14 @@ export const appSettings = {
       title: 'Projects.txt - Notepad',
     },
     component: Notepad,
-    defaultSize: {
-      width: 660,
-      height: 500,
-    },
+    defaultSize: getDimensions(660, 500),
     defaultOffset: {
       x: 270,
       y: 60,
     },
     resizable: true,
     minimized: false,
-    maximized: window.innerWidth < 800,
+    maximized: isMobileDevice(),
     multiInstance: true,
   },
 };
