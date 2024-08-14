@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "ShizukuIchi <shizukuichi@gmail.com>",
-  "homepage": "https://winxp.now.sh",
+  "homepage": "https://ekoka99.github.io/winxp/",
   "dependencies": {
     "dompurify": "^3.1.6",
     "lodash.samplesize": "^4.2.0",
