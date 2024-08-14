@@ -23,7 +23,7 @@ import stop from 'assets/windowsIcons/stop.png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
 
 function InternetExplorer({ onClose }) {
-  const [url, setUrl] = useState('https://demo.reactresume.com/');
+  const [url, setUrl] = useState('https://ekoka99.github.io/Resume-site/');
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function InternetExplorer({ onClose }) {
         onClose();
         break;
       case 'Home Page':
-        setUrl('https://demo.reactresume.com/');
+        setUrl('https://ekoka99.github.io/Resume-site/');
         break;
       default:
     }

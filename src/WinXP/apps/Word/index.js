@@ -47,7 +47,9 @@ import Undo from 'assets/windowsIcons/word-icons(16x16)/Undo.png';
 import Dropdown from 'assets/windowsIcons/dropdown.png';
 
 function Word({ onClose }) {
-  const [pdfUrl] = useState('https://pdfobject.com/pdf/sample.pdf');
+  const [pdfUrl] = useState(
+    'https://drive.google.com/file/d/1y4EvAsm_VXLM3XvhxGPcdZxgWhffwv5Y/preview',
+  );
 
   function onClickOptionItem(item) {
     switch (item) {

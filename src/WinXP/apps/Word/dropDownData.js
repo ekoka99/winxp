@@ -1155,6 +1155,16 @@ export const Help = [
   },
 ];
 
-const WordMenuData = { File, Edit, View, Insert, Format, Tools, Table, Window, Help };
+const WordMenuData = {
+  File,
+  Edit,
+  View,
+  Insert,
+  Format,
+  Tools,
+  Table,
+  Window,
+  Help,
+};
 
 export default WordMenuData;
