@@ -40,5 +40,4 @@ jobs:
       if: success()
       run: |
         git fetch origin gh-pages
-        git checkout gh-pages
-        ls -R
+        git ls-tree -r --name-only origin/gh-pages
