@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/winxp/static/css/main.f012863c.css",
+    "main.js": "/winxp/static/js/main.7e271f25.js",
+    "static/media/error.wav": "/winxp/static/media/error.c8da1695dd177fc9e8ec.wav",
+    "static/media/start.png": "/winxp/static/media/start.216c3c87e9d71a5ecc71.png",
+    "static/media/user.png": "/winxp/static/media/user.bfbfd96afe02173771d2.png",
+    "static/media/restart.ico": "/winxp/static/media/restart.dc491046c84e4c14e552.ico",
+    "index.html": "/winxp/index.html",
+    "main.f012863c.css.map": "/winxp/static/css/main.f012863c.css.map",
+    "main.7e271f25.js.map": "/winxp/static/js/main.7e271f25.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f012863c.css",
+    "static/js/main.7e271f25.js"
+  ]
+}
