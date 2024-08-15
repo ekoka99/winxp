@@ -48,7 +48,7 @@ import Dropdown from 'assets/windowsIcons/dropdown.png';
 
 function Word({ onClose }) {
   const [pdfUrl] = useState(
-    'https://drive.google.com/file/d/1y4EvAsm_VXLM3XvhxGPcdZxgWhffwv5Y/preview',
+    'https://nbviewer.org/github/ekoka99/Resume-site/blob/40aa924c20d0c986ffbd85cb2a790b0fcf3724c3/public/Elio%20Koka%20Autonomy%20and%20AI%20Test%20Engineer%20Resume.pdf',
   );
 
   function onClickOptionItem(item) {
