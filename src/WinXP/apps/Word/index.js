@@ -48,7 +48,7 @@ import Dropdown from 'assets/windowsIcons/dropdown.png';
 
 function Word({ onClose }) {
   const [pdfUrl] = useState(
-    'https://nbviewer.org/github/ekoka99/Resume-site/blob/40aa924c20d0c986ffbd85cb2a790b0fcf3724c3/public/Elio%20Koka%20Autonomy%20and%20AI%20Test%20Engineer%20Resume.pdf',
+    'https://nbviewer.org/github/ekoka99/Resume-site/blob/b391898ac62d50e3068d7ed34cf4be9137df947c/public/Elio%20Koka%20SW%3AFW%20System%20integration%20engineer%20resume.pdf',
   );
 
   function onClickOptionItem(item) {
