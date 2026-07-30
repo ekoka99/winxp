@@ -51,7 +51,6 @@ import heart from 'assets/windowsIcons/heart.png';
 import rdp from 'assets/windowsIcons/rdp.png';
 import solitaire from 'assets/windowsIcons/solitaire.png';
 import narrator from 'assets/windowsIcons/narrator.ico';
-import pinball from 'assets/windowsIcons/pinball.png';
 import restore from 'assets/windowsIcons/restore.ico';
 import mine from 'assets/minesweeper/mine-icon.png';
 
@@ -341,11 +340,6 @@ export const AllPrograms = [
         type: 'item',
         icon: mine,
         text: 'Minesweeper',
-      },
-      {
-        type: 'item',
-        icon: pinball,
-        text: 'Pinball',
       },
       {
         type: 'item',

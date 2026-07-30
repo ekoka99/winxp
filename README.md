@@ -1,28 +1,30 @@
-# WinXP
+# Elio Koka's Windows XP Portfolio
 
-🏁 Web based Windows XP desktop recreation.
+A Windows XP-inspired portfolio for Elio Koka, a senior robotics systems and integration engineer focused on humanoids,
+autonomous platforms, manufacturing automation, diagnostics, and production test.
 
-Features:
+The desktop turns the portfolio into a familiar operating-system experience:
 
-- Drag and resize, minimize, maximize windows
-- Open applications from desktop icons or start menu
-- Minesweeper, Internet Explorer, My Computer, Notepad, Winamp, Paint
-- Power off menu
+- **Internet Explorer** presents the main deep-tech systems profile.
+- **Microsoft Word** opens Elio's latest résumé.
+- **Notepad** contains selected systems work, measurable outcomes, and engineering principles.
+- **Start menu** provides direct contact details.
 
-## [Try it!](https://winxp.now.sh)
+## Development
 
-Windows XP 👉 https://winxp.now.sh
+```bash
+npm ci --legacy-peer-deps
+npm start
+```
 
-[![](demo/demo.gif)](https://winxp.now.sh)
+Create a production build with:
 
-## Contributing
+```bash
+npm run build
+```
 
-Generally open an issue (or comment on an issue if there's one already) before starting work on a PR.
+## Attribution
 
-## License
-
-The Windows XP name, artwork, trademark are surely property of Microsoft. This project is provided for educational purposes only. It is not affiliated with and has not been approved by Microsoft.
-
-## Thanks
-- [Webamp](https://github.com/captbaritone/webamp), Winamp 2 reimplementation by: [captbaritone](https://github.com/captbaritone)
-- [JS Paint](https://github.com/1j01/jspaint), Paint reimplementation by: [1j01](https://github.com/1j01)
+This portfolio is based on [ShizukuIchi/winXP](https://github.com/ShizukuIchi/winXP) and retains the original MIT
+license. The Windows XP and Microsoft Office names, artwork, and trademarks belong to Microsoft. This project is an
+educational, non-commercial recreation and is not affiliated with Microsoft.

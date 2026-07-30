@@ -3,44 +3,48 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - eliok/winxp  # Make sure this matches your actual branch name
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Debug - Show current branch
-        run: git branch --show-current
+      - uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v6
         with:
-          node-version: '16'
+          node-version: '22'
+          cache: npm
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
 
-      - name: Build
-        run: npm run build
-        env:
-          CI: false
+      - name: Check and build
+        run: npm run check
 
-      - name: Create CNAME file
-        run: echo "kokael.io" > build/CNAME
+      - name: Add custom domain
+        run: cp CNAME build/CNAME
 
-      - name: Debug - List build directory contents
-        run: ls -R build
+      - name: Verify export
+        run: |
+          test -f build/index.html
+          test -f build/projectsfile
+          test -f build/CNAME
+          grep -q "Elio Koka" build/index.html
+          grep -q "ROBOTICS SYSTEMS" build/projectsfile
+          grep -q "kokael.io" build/CNAME
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-
-      - name: Debug - Show gh-pages branch content
-        if: success()
-        run: |
-          git fetch origin gh-pages
-          git ls-tree -r --name-only origin/gh-pages

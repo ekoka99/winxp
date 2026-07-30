@@ -21,7 +21,7 @@ function FooterMenu({ onClick }) {
     <StyledFooterMenu>
       <header>
         <img className="header__img" src={user} alt="avatar" />
-        <span className="header__text">Elio Koka</span>
+        <span className="header__text">Elio Koka · Systems Engineer</span>
       </header>
       <section className="menu">
         <hr className="orange-hr" />
@@ -69,6 +69,10 @@ function FooterMenu({ onClick }) {
 }
 
 const StyledFooterMenu = styled.div`
+  width: min(400px, 100vw);
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
   font-size: 11px;
   line-height: 14px;
   display: flex;
@@ -87,6 +91,7 @@ const StyledFooterMenu = styled.div`
     height: 54px;
     padding: 6px 5px 5px;
     width: 100%;
+    box-sizing: border-box;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background: linear-gradient(
@@ -124,7 +129,8 @@ const StyledFooterMenu = styled.div`
 
   .menu {
     display: flex;
-    margin: 0 2px;
+    width: 100%;
+    margin: 0;
     position: relative;
     border-top: 1px solid #385de7;
     box-shadow: 0 1px #385de7;
@@ -149,7 +155,9 @@ const StyledFooterMenu = styled.div`
   .menu__left {
     background-color: #fff;
     padding: 6px 5px 0;
-    width: 190px;
+    width: 50%;
+    min-width: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
   }
@@ -158,7 +166,9 @@ const StyledFooterMenu = styled.div`
     background-color: #cbe3ff;
     border-left: solid #3a3aff5e 1px;
     padding: 6px 5px 0;
-    width: 190px;
+    width: 50%;
+    min-width: 0;
+    box-sizing: border-box;
     color: #00136b;
   }
 
@@ -188,12 +198,15 @@ const StyledFooterMenu = styled.div`
 
   .menu__item__texts {
     display: flex;
+    min-width: 0;
     flex-direction: column;
     justify-content: center;
   }
 
   .menu__item__text {
     font-weight: bold;
+    line-height: 13px;
+    overflow-wrap: anywhere;
   }
 
   .menu__item__subtext {
@@ -209,6 +222,7 @@ const StyledFooterMenu = styled.div`
     color: #fff;
     height: 36px;
     width: 100%;
+    box-sizing: border-box;
     background: linear-gradient(
       to bottom,
       #4282d6 0%,
@@ -250,6 +264,35 @@ const StyledFooterMenu = styled.div`
     margin-right: 2px;
     width: 22px;
     height: 22px;
+  }
+
+  @media (max-width: 360px) {
+    .header__text {
+      font-size: 13px;
+    }
+
+    .menu {
+      flex-direction: column;
+    }
+
+    .menu__left,
+    .menu__right {
+      width: 100%;
+      padding: 6px 8px 2px;
+    }
+
+    .menu__right {
+      border-top: 1px solid #3a3aff5e;
+      border-left: 0;
+    }
+
+    footer {
+      justify-content: space-between;
+    }
+
+    .footer__item {
+      margin-right: 4px;
+    }
   }
 `;
 

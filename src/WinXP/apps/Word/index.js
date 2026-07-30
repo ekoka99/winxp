@@ -48,7 +48,7 @@ import Dropdown from 'assets/windowsIcons/dropdown.png';
 
 function Word({ onClose }) {
   const [pdfUrl] = useState(
-    'https://nbviewer.org/github/ekoka99/Resume-site/blob/main/public/ElioKoka_IntegrationTestEngineerSr_Resume.pdf',
+    'https://ekoka99.github.io/Resume-site/Elio_Koka_Senior_Systems_Integration.pdf',
   );
 
   function onClickOptionItem(item) {

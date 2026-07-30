@@ -12,10 +12,7 @@ import notepadLarge from 'assets/windowsIcons/327(32x32).png';
 
 // Function to detect mobile devices
 const isMobileDevice = () => {
-  return (
-    typeof window.orientation !== 'undefined' ||
-    navigator.userAgent.indexOf('IEMobile') !== -1
-  );
+  return window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
 };
 
 // Function to get appropriate dimensions based on device type
@@ -47,7 +44,7 @@ export const defaultAppState = [
   {
     component: InternetExplorer,
     header: {
-      title: "Elio Koka's Personal Site - Internet Explorer",
+      title: 'Elio Koka | Robotics Systems Engineer - Internet Explorer',
       icon: iePaper,
     },
     defaultSize: getDimensions(
@@ -77,14 +74,14 @@ export const defaultIconState = [
   {
     id: 1,
     icon: wordIcon,
-    title: 'Resume.docx',
+    title: 'Elio_Koka_Resume.docx',
     component: Word,
     isFocus: false,
   },
   {
     id: 2,
     icon: notepadLarge,
-    title: 'Projects.txt',
+    title: 'Systems_Portfolio.txt',
     component: Notepad,
     isFocus: false,
   },
@@ -94,7 +91,7 @@ export const appSettings = {
   'Internet Explorer': {
     header: {
       icon: iePaper,
-      title: "Elio Koka's Personal Site - Internet Explorer",
+      title: 'Elio Koka | Robotics Systems Engineer - Internet Explorer',
     },
     component: InternetExplorer,
     defaultSize: getDimensions(700, 500),
@@ -110,7 +107,7 @@ export const appSettings = {
   Word: {
     header: {
       icon: wordPaper,
-      title: 'Resume.docx - Microsoft Word',
+      title: 'Elio_Koka_Resume.docx - Microsoft Word',
     },
     component: Word,
     defaultSize: getDimensions(
@@ -151,7 +148,7 @@ export const appSettings = {
   Notepad: {
     header: {
       icon: notepad,
-      title: 'Projects.txt - Notepad',
+      title: 'Systems_Portfolio.txt - Notepad',
     },
     component: Notepad,
     defaultSize: getDimensions(660, 500),
