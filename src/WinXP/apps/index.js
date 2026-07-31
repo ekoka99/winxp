@@ -81,7 +81,7 @@ export const defaultIconState = [
   {
     id: 2,
     icon: notepadLarge,
-    title: 'Systems_Portfolio.txt',
+    title: 'Projects.txt',
     component: Notepad,
     isFocus: false,
   },
@@ -148,7 +148,7 @@ export const appSettings = {
   Notepad: {
     header: {
       icon: notepad,
-      title: 'Systems_Portfolio.txt - Notepad',
+      title: 'Projects.txt - Notepad',
     },
     component: Notepad,
     defaultSize: getDimensions(660, 500),

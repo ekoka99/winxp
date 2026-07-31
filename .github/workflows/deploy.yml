@@ -38,9 +38,15 @@ jobs:
         run: |
           test -f build/index.html
           test -f build/projectsfile
+          test -f build/project-media/winxp-portfolio.webp
+          test -f build/project-media/aim-assist.webp
+          test -f build/project-media/ambilight.webp
+          test -f build/wallpaper/windows-xp-bliss.jpg
           test -f build/CNAME
           grep -q "Elio Koka" build/index.html
-          grep -q "ROBOTICS SYSTEMS" build/projectsfile
+          grep -q "Windows XP Inspired Personal Site" build/projectsfile
+          grep -q "Computer Vision for Real-Time Aim Assist" build/projectsfile
+          grep -q "WS2815 addressable LED strips" build/projectsfile
           grep -q "kokael.io" build/CNAME
 
       - name: Deploy
